@@ -12,7 +12,7 @@ O projeto consiste em uma página única (Single Page Application) desenvolvida 
 - **Tema Escuro/Claro:** Possui um botão que permite ao usuário alternar entre o modo claro e escuro. A preferência do usuário é salva no navegador.
 - **Design Responsivo:** O layout se adapta a diferentes tamanhos de tela, de desktops a dispositivos móveis.
 
-## ecnologias Utilizadas
+## Tecnologias Utilizadas
 
 O projeto foi construído utilizando as seguintes tecnologias web:
 
@@ -45,7 +45,3 @@ cd seu-repositorio
 - [ ] Implementar a funcionalidade de busca no cabeçalho.
 - [ ] Adicionar mais seções de projetos.
 - [ ] Refatorar o CSS para uma melhor organização.
-
----
-
-Feito por Laiza Rocha.
