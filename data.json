@@ -1,0 +1,16 @@
+[
+    {
+    "nome": "Quem sou eu?",
+    "descricao": "Meu nome é Laisa, tenho 22 anos e sou estudante de Engenharia. Sou apaixonada por tecnologia e estou sempre em busca de aprender coisas novas. No meu tempo livre, gosto de ler livros de ficção científica e explorar novas trilhas ao ar livre.",
+    "link": "https://www.linkedin.com/in/ilaizarocha/"
+},
+{
+    "nome": "Projetos",
+    "descricao": "Aqui estão alguns dos meus projetos recentes",
+    "link": "https://github.com/ilaizarocha"
+},
+{
+    "nome": "Contatos",
+    "descricao": "Entre em contato comigo!",
+    "link": "https://linktr.ee/laizaerocha"
+}

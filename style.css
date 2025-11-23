@@ -1,0 +1,388 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+/* --- VARIÁVEIS DE TEMA (MODO CLARO PADRÃO) --- */
+:root {
+    --primary-color: #650059; /* Destaque (Magenta Escuro) */
+    --secondary-color: #333333; /* Texto principal (Preto Suave) */
+    --tertiary-color: #888888; /* Secundário (Placeholder) */
+    --bg-color: #f7c2f1; /* Fundo (Rosa Claro) */
+    --link-color: var(--primary-color);
+}
+
+/* --- REGRAS PARA MODO ESCURO AUTOMÁTICO (prefers-color-scheme) --- */
+/* CORREÇÃO DE SINTAXE E VARIÁVEIS APLICADAS AQUI */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary-color: #f7c2f1; /* Destaque claro */
+        --secondary-color: #cccccc; /* Texto principal claro */
+        --tertiary-color: #999999; 
+        --bg-color: #121212; /* Fundo escuro */
+    }
+}
+
+
+/* --- CLASSE MANUAL PARA MODO ESCURO (ativada pelo botão) --- */
+.dark-theme {
+    --primary-color: #f7c2f1 !important;
+    --secondary-color: #cccccc !important;
+    --tertiary-color: #999999 !important;
+    --bg-color: #121212 !important;
+    --link-color: #f7c2f1 !important; /* CORREÇÃO DO LINK AQUI */
+}
+
+/* --- CLASSE MANUAL PARA MODO CLARO (ativada pelo botão) --- */
+.light-theme {
+    --primary-color: #650059 !important;
+    --secondary-color: #333333 !important;
+    --tertiary-color: #888888 !important;
+    --bg-color: #f7c2f1 !important;
+    --link-color: #650059 !important; /* CORREÇÃO DO LINK AQUI */
+}
+
+
+body {
+    margin: 0;
+    background: var(--bg-color);
+    color: var(--secondary-color);
+    font-family: "Quicksand", sans-serif;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+header {
+    padding: 2rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: sticky;
+    top: 0;
+    background: var(--bg-color);
+    z-index: 10;
+    gap: 1rem;
+}
+
+/* --- TÍTULO PRINCIPAL (H1) - MAIOR E PADRONIZADO --- */
+header h1 {
+    font-size: 1.8rem;
+    margin: 0;
+    font-weight: 500;
+    white-space: nowrap;
+    color: var(--primary-color);
+}
+
+/* --- ESTILOS DO TOGGLE SWITCH --- */
+
+.theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+    position: absolute; 
+    top: 25px;
+    right: 25px;
+    z-index: 1000;
+}
+
+.theme-switch input[type="checkbox"] {
+    display: none;
+}
+
+.theme-switch {
+    display: inline-block;
+    width: 60px; 
+    height: 34px; 
+    background-color: var(--tertiary-color); 
+    border-radius: 34px; 
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.4s;
+}
+
+.theme-switch .slider {
+    position: absolute;
+    content: "";
+    height: 26px; 
+    width: 26px; 
+    left: 4px; 
+    bottom: 4px; 
+    background-color: white; 
+    border-radius: 50%; 
+    transition: transform 0.4s;
+}
+
+/* Ícone da lua no modo claro (posição inicial) */
+.theme-switch .slider::before {
+    content: '🌙'; 
+    position: absolute;
+    left: 30px; 
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px; 
+    transition: opacity 0.4s;
+}
+
+/* Ícone do sol no modo escuro (posição final) */
+.theme-switch .slider::after {
+    content: '☀️'; 
+    position: absolute;
+    left: -20px; 
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px; 
+    opacity: 0; 
+    transition: opacity 0.4s;
+}
+
+/* AÇÕES DO CHECKBOX: Quando marcado (Modo Escuro) */
+.theme-switch input:checked + .slider {
+    background-color: var(--primary-color); 
+    transform: translateX(26px); 
+}
+
+.theme-switch input:checked + .slider::before {
+    opacity: 0; 
+}
+
+.theme-switch input:checked + .slider::after {
+    opacity: 1; 
+}
+
+/* --- ESTILOS DO INPUT DE BUSCA --- */
+div input {
+    padding: 0.375rem 0.75rem;
+    border-radius: 1rem;
+    border: 1px solid var(--tertiary-color);
+    background: var(--bg-color);
+    font-family: inherit;
+    font-size: 1.5rem;
+    transition: all 0.2s ease;
+    width: 30rem;
+    color: var(--secondary-color);
+    margin-right: .5rem;
+}
+
+/* Ajuste de fundo para o input em Dark Mode */
+.dark-theme div input,
+@media (prefers-color-scheme: dark) {
+    :root div input {
+        background: #333333; 
+        border-color: #555555;
+    }
+}
+
+
+div input::placeholder {
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: var(--tertiary-color);
+}
+
+div input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.1rem var(--primary-color);
+}
+
+/* --- ESTILOS DO BOTÃO DE BUSCA --- */
+#botao-busca {
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 1rem;
+    white-space: nowrap;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+    border: 1px solid var(--primary-color);
+}
+
+#botao-busca:hover {
+    background-color: transparent;
+    color: var(--primary-color);
+    box-shadow: 0 0 0 0.1rem var(--primary-color);
+}
+
+#botao-busca:active {
+    transform: scale(0.98);
+}
+
+/* --- MAIN E ARTICLE --- */
+main {
+    overflow-y: scroll;
+    max-width: 80rem;
+    margin: 0 auto;
+    margin-top: 2rem;
+    height: calc(100vh - 10rem - 4rem);
+}
+
+article {
+    background: none;
+    border-radius: 0;
+    padding: 0 1rem;
+    margin-bottom: 1.25rem;
+    box-shadow: none;
+    transition: background-color 0.3s ease, border-bottom-color 0.3s ease, transform 0.2s ease;
+    padding-bottom: 1.5rem;
+}
+
+article:hover {
+    transform: scale(1.01);
+    cursor: pointer;
+    background-color: rgba(101, 0, 89, 0.05); 
+}
+
+/* Ajuste do hover para Dark Mode */
+.dark-theme article:hover,
+@media (prefers-color-scheme: dark) {
+    :root article:hover {
+        background-color: rgba(247, 194, 241, 0.1); 
+    }
+}
+
+/* --- TÍTULO DE SEÇÃO (H2) - SEGUNDO MAIOR E PADRONIZADO --- */
+article h2 {
+    margin-top: 0;
+    font-weight: 600;
+    font-size: 1.6rem;
+    margin-bottom: 0.25rem;
+    color: var(--primary-color);
+}
+
+/* --- SUBTÍTULO (H3) - TERCEIRO MAIOR E PADRONIZADO (NOVO) --- */
+article h3 {
+    margin-top: 1.5rem; 
+    font-weight: 600;
+    font-size: 1.4rem; 
+    margin-bottom: 0.25rem;
+    color: var(--primary-color);
+}
+
+
+article p {
+    margin: 0.5rem 0;
+    line-height: 1.6;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: var(--secondary-color);
+}
+
+article p strong {
+    color: var(--secondary-color);
+    font-weight: 400;
+}
+
+article a {
+    color: var(--link-color);
+    text-decoration: none;
+    font-weight: 400;
+}
+
+article a:hover {
+    text-decoration: underline;
+}
+
+/* --- FOOTER --- */
+.footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    color: var(--secondary-color);
+    background-color: var(--bg-color);
+    padding: 15px 20px;
+    border-top: 1px solid var(--tertiary-color);
+    font-size: 0.8rem;
+}
+
+.footer-location {
+    color: var(--tertiary-color);
+    margin-bottom: 10px;
+}
+
+.footer-links {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.footer-links a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-links a:hover {
+    color: var(--primary-color);
+}
+
+/* --- MEDIA QUERIES --- */
+@media (max-width: 768px) {
+    header { 
+        flex-direction: column; 
+        padding: 1rem; 
+    }
+
+    .theme-switch-wrapper {
+        position: static; 
+        margin-top: 1rem; 
+        margin-bottom: 1rem;
+    }
+
+    header h1 { 
+        text-align: center; 
+        margin-bottom: 1rem; 
+    }
+
+    div input { 
+        width: 90vw; 
+        font-size: 1.2rem; 
+    }
+
+    main { 
+        padding: 0 1rem; 
+    }
+
+    article:hover { 
+        transform: none; 
+        background-color: transparent; 
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 { 
+        font-size: 1rem; 
+        max-width: 70%; 
+        word-wrap: break-word; 
+    }
+
+    div input, 
+    div input::placeholder {
+        font-size: 1rem; 
+    }
+
+    article h2 { 
+        font-size: 1.3rem; 
+    }
+
+    div { 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        flex-direction: column; 
+        gap: 0.5rem; 
+    }
+
+    .footer { 
+        display: none; 
+    }
+
+    button { 
+        margin-top: 1rem; 
+    }
+}
