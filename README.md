@@ -20,26 +20,6 @@ O projeto foi construído utilizando as seguintes tecnologias web:
 - **CSS3:** Para a estilização e design, incluindo o uso de variáveis para o sistema de temas.
 - **JavaScript:** Para a interatividade, manipulação do DOM e carregamento de dados.
 
-## Estrutura do Projeto
-
-```
-/
-├─── data.json         # Arquivo com os dados que alimentam o site
-├─── index.html        # Estrutura principal da página
-├─── script.js         # Lógica de funcionamento e interatividade
-└─── style.css         # Folha de estilos
-```
-
-## Como Executar
-
-Para visualizar o projeto, basta clonar este repositório e abrir o arquivo `index.html` em seu navegador de preferência.
-
-```bash
-git clone https://github.com/seu-usuario/seu-repositorio.git
-cd seu-repositorio
-# Abra o arquivo index.html no navegador
-```
-
 ## Futuras implementações
 
 - [ ] Implementar a funcionalidade de busca no cabeçalho.
